@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-space-grotesk: 'Space Grotesk', system-ui, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+  --bg-dark: #0a0e17;
+  --cyan-glow: #22d3ee;
+  --cyan-dim: rgba(34, 211, 238, 0.4);
+  --fuchsia: #e879f9;
+  --fuchsia-dim: rgba(232, 121, 249, 0.5);
+}
+
+html {
+  background-color: var(--bg-dark);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-space-grotesk);
+  @apply antialiased;
+  background-color: var(--bg-dark);
+  color: #f1f5f9;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-mono {
+  font-family: var(--font-jetbrains-mono);
+}
+
+/* Background pattern - subtle grid/code feel */
+.bg-tech-pattern {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Portfolio / Hero QA background - estilo "Quality Level": grade graph paper em todo o site */
+.bg-hero-qa,
+.bg-qa-portfolio {
+  background-color: #0c1222;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Glow effects */
+.glow-cyan {
+  box-shadow: 0 0 20px var(--cyan-dim), 0 0 40px rgba(34, 211, 238, 0.1);
+}
+
+.glow-border-cyan {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.3), 0 0 20px rgba(34, 211, 238, 0.1);
+}
+
+.text-gradient-hero {
+  display: inline-block;
+  background: linear-gradient(90deg, #22d3ee 0%, #a78bfa 50%, #e879f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f1f5f9; /* fallback se background-clip não for suportado */
+}
+
+.text-gradient-section {
+  display: inline-block;
+  background: linear-gradient(90deg, #4ade80 0%, #22d3ee 50%, #e879f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f1f5f9;
+}
+
+.text-gradient-cyan-magenta {
+  display: inline-block;
+  background: linear-gradient(90deg, #22d3ee 0%, #e879f9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f1f5f9;
+}
+
+/* Tag-style title */
+.section-tag {
+  @apply font-mono text-2xl font-bold md:text-3xl;
+}
+
+/* Flutuação dos ícones de fundo - mais movimento */
+@keyframes float-icons {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0) translateX(0) rotate(0deg);
+  }
+  12.5% {
+    transform: translate(-50%, -50%) translateY(-14px) translateX(10px) rotate(2deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateY(-8px) translateX(18px) rotate(-1deg);
+  }
+  37.5% {
+    transform: translate(-50%, -50%) translateY(12px) translateX(8px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(16px) translateX(-12px) rotate(-2deg);
+  }
+  62.5% {
+    transform: translate(-50%, -50%) translateY(6px) translateX(-18px) rotate(1deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateY(-10px) translateX(-6px) rotate(-1deg);
+  }
+  87.5% {
+    transform: translate(-50%, -50%) translateY(-16px) translateX(6px) rotate(2deg);
+  }
+}
+
+.animate-float-icons {
+  animation: float-icons 14s ease-in-out infinite;
+}
